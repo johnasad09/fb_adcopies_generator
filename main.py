@@ -13,7 +13,7 @@ import streamlit as st
 import json
 import re
 from urllib.parse import urlparse
-from secret_key import key
+# from secret_key import key
 from langchain.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema.output_parser import StrOutputParser
@@ -23,8 +23,11 @@ from langchain_community.document_loaders import WebBaseLoader
 # CONFIGURATION & INITIALIZATION
 # =============================================
 
+# Get API key from secrets TOML
+api_key = st.secrets["api_key"]
+
 # Initialize AI model
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", api_key=key)
+llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", api_key=api_key)
 output_parser = StrOutputParser()
 
 # Initialize session state
