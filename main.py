@@ -56,7 +56,7 @@ def get_llm_instance():
 
     if st.session_state.selected_llm == "Google Gemini":
         return ChatGoogleGenerativeAI(
-            model="gemini-1.5-flash",
+            model="gemini-3-flash-preview",
             api_key=st.session_state.session_api_key
         )
     elif st.session_state.selected_llm == "OpenAI GPT":
